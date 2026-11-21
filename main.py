@@ -681,7 +681,7 @@ def serve_storefront():
             alertCpu.innerText = 'ELEVATED';
             alertCpu.className = 'px-2 py-0.5 rounded bg-rose-950 border border-rose-500/40 text-rose-300 font-mono font-bold';
             xaiTitle.innerText = 'Unusual CPU behaviour detected.';
-            xaiBody.innerText = 'CPU usage has increased significantly compared with the system\\' + "'s recent baseline. A transient worker thread is consuming disproportionate compute cycles.";
+            xaiBody.innerText = "CPU usage has increased significantly compared with the system's recent baseline. A transient worker thread is consuming disproportionate compute cycles.";
             btn.innerText = 'Inject CPU Spike';
           }
         }
