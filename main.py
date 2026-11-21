@@ -127,13 +127,12 @@ def serve_storefront():
       <script src="https://cdn.tailwindcss.com"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       <style>
+        html { scroll-behavior: smooth; }
         body { background-color: #070c18; color: #f1f5f9; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
         .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .grid-bg { background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 0); background-size: 32px 32px; }
         .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.15); }
         .glass-card:hover { border-color: rgba(56, 189, 248, 0.35); box-shadow: 0 0 20px rgba(56, 189, 248, 0.12); }
-        @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        .animate-pulse-slow { animation: pulse-slow 3s infinite; }
       </style>
     </head>
     <body class="min-h-screen grid-bg">
@@ -170,10 +169,10 @@ def serve_storefront():
         </div>
 
         <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
-          <a href="#editions" class="hover:text-sky-400 transition">Editions & Plans</a>
-          <a href="#demo" class="hover:text-sky-400 transition">Live Telemetry Demo</a>
           <a href="#pipeline" class="hover:text-sky-400 transition">Pipeline</a>
+          <a href="#demo" class="hover:text-sky-400 transition">Live Telemetry Demo</a>
           <a href="#why" class="hover:text-sky-400 transition">Why Sentinel</a>
+          <a href="#editions" class="hover:text-sky-400 transition">Editions & Plans</a>
         </div>
 
         <div class="flex items-center space-x-3">
@@ -185,7 +184,7 @@ def serve_storefront():
             <i class="fa-solid fa-key text-sky-400"></i>
             <span>Verify License</span>
           </button>
-          <a href="#editions" class="bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-md transition flex items-center space-x-1.5 shadow-lg shadow-sky-500/25">
+          <a href="#editions" class="bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-md transition flex items-center space-x-1.5 shadow-lg shadow-sky-500/20">
             <i class="fa-solid fa-cart-shopping"></i>
             <span>Get License</span>
           </a>
@@ -261,7 +260,90 @@ def serve_storefront():
         </div>
       </section>
 
-      <!-- SLIDE 06 CONCEPT - REAL-TIME TELEMETRY SIMULATION -->
+      <!-- 1. THE INTELLIGENCE PIPELINE (SLIDE 04) -->
+      <section id="pipeline" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-800/80">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase">THE INTELLIGENCE PIPELINE</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">From raw data to intelligent warnings</h2>
+          <p class="text-slate-400 text-sm mt-2">Six continuous stages turn system activity into an explainable response before risks escalate.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 01 Data collection -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">01</div>
+            <div class="h-10 w-10 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-lg mb-4">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Data Collection</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Continuous non-invasive capture of CPU usage, RAM consumption shifts, unexpected network patterns, and unfamiliar process behaviors.
+            </p>
+          </div>
+
+          <!-- 02 Feature extraction -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">02</div>
+            <div class="h-10 w-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg mb-4">
+              <i class="fa-solid fa-filter"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Feature Extraction</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Convert raw metrics into meaningful mathematical features—deriving rates of change, connection distributions, and execution volatility.
+            </p>
+          </div>
+
+          <!-- 03 Baseline learning -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">03</div>
+            <div class="h-10 w-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg mb-4">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Baseline Learning</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Understand normal system behaviour across user workloads, routine builds, and scheduled tasks without triggering rigid threshold alarms.
+            </p>
+          </div>
+
+          <!-- 04 Anomaly detection -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">04</div>
+            <div class="h-10 w-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg mb-4">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Anomaly Detection</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Identify unusual patterns and subtle outliers using AI/ML algorithms such as Isolation Forest and statistical baselines across multiple signals.
+            </p>
+          </div>
+
+          <!-- 05 Risk scoring -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">05</div>
+            <div class="h-10 w-10 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-lg mb-4">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Risk Scoring</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Calculate unified anomaly scores and risk levels (NOMINAL, REVIEW, ELEVATED, CRITICAL) to prioritize genuine anomalies over noise.
+            </p>
+          </div>
+
+          <!-- 06 Explainable alerts -->
+          <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+            <div class="text-sky-500/10 text-5xl font-black font-mono absolute top-4 right-4 group-hover:text-sky-500/25 transition">06</div>
+            <div class="h-10 w-10 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-lg mb-4">
+              <i class="fa-solid fa-comment-dots"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Explainable Alerts</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Explain the behaviour in plain human language, highlight the root cause, and suggest prioritized, safe next actions for resolution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. SLIDE 06 CONCEPT - REAL-TIME TELEMETRY SIMULATION -->
       <section id="demo" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
@@ -377,7 +459,7 @@ def serve_storefront():
                 </div>
                 <h4 id="xaiTitle" class="text-base font-bold text-white mb-2">Unusual CPU behaviour detected.</h4>
                 <p id="xaiBody" class="text-xs text-slate-300 leading-relaxed">
-                  CPU usage has increased significantly compared with the system's recent baseline. A transient worker thread is consuming disproportionate compute cycles.
+                  CPU usage has increased significantly compared with the system&#39;s recent baseline. A transient worker thread is consuming disproportionate compute cycles.
                 </p>
               </div>
               <div class="mt-4 pt-3 border-t border-sky-500/20 text-xs font-mono text-sky-300 flex items-center space-x-2">
@@ -389,7 +471,60 @@ def serve_storefront():
         </div>
       </section>
 
-      <!-- EDITIONS & ONLINE STORE SECTION -->
+      <!-- 3. WHY SENTINEL (SLIDE 07) -->
+      <section id="why" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-800/80">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase">WHY IT MATTERS</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Beyond monitoring. Towards intelligent prevention.</h2>
+          <p class="text-slate-400 text-sm mt-2">Traditional monitoring reacts after damage occurs. Sentinel AI anticipates risk before abnormal behavior escalates.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-8">
+          <!-- Traditional Monitoring -->
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-8">
+            <div class="inline-block text-xs font-mono font-bold text-slate-400 uppercase bg-slate-800/80 px-3 py-1 rounded mb-4">TRADITIONAL MONITORING</div>
+            <h3 class="text-xl font-bold text-slate-300 mb-6">Activity without meaning</h3>
+            
+            <ul class="space-y-5 text-xs sm:text-sm text-slate-400">
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Shows metrics and isolated readings:</strong> Charts, thresholds, and raw system activity without context.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Alerts only on fixed thresholds:</strong> CPU usage spikes or slow memory leaks can easily go completely unnoticed.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
+                <span><strong>Meaning and next action left to you:</strong> Overwhelming stream of notifications with no clear safe action path.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sentinel AI -->
+          <div class="glass-card border-2 border-sky-500/40 bg-gradient-to-br from-slate-900 to-sky-950/30 rounded-2xl p-8 shadow-xl shadow-sky-500/10">
+            <div class="inline-block text-xs font-mono font-bold text-sky-300 uppercase bg-sky-950 border border-sky-500/40 px-3 py-1 rounded mb-4">SENTINEL AI INTELLIGENCE</div>
+            <h3 class="text-xl font-bold text-white mb-6">Proactive threat awareness</h3>
+            
+            <ul class="space-y-5 text-xs sm:text-sm text-slate-200">
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-check text-sky-400 mt-1"></i>
+                <span><strong>Learns each system's normal behaviour:</strong> One intelligence layer across the signals your machine already produces.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-check text-sky-400 mt-1"></i>
+                <span><strong>Detects unusual patterns and scores risk:</strong> Behaviour-based anomaly detection using Isolation Forest and statistical baselines.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fa-solid fa-check text-sky-400 mt-1"></i>
+                <span><strong>Explains the risk and suggests safe actions:</strong> Context-aware anomaly scoring with human-controlled recommendations before problems escalate.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. EDITIONS & ONLINE STORE SECTION -->
       <section id="editions" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-800/80">
         <div class="text-center max-w-2xl mx-auto mb-16">
           <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase">EDITIONS & PRICING</span>
@@ -600,10 +735,6 @@ def serve_storefront():
           const sweepX = centerX + Math.cos(angle) * maxRadius;
           const sweepY = centerY + Math.sin(angle) * maxRadius;
 
-          const gradient = ctx.createLinearGradient(centerX, centerY, sweepX, sweepY);
-          gradient.addColorStop(0, 'rgba(56, 189, 248, 0.6)');
-          gradient.addColorStop(1, 'rgba(56, 189, 248, 0.05)');
-
           ctx.beginPath();
           ctx.moveTo(centerX, centerY);
           ctx.arc(centerX, centerY, maxRadius, angle - 0.25, angle);
@@ -622,7 +753,6 @@ def serve_storefront():
             const bx = centerX + Math.cos(b.angle) * b.r;
             const by = centerY + Math.sin(b.angle) * b.r;
             
-            // Check sweep proximity
             let diff = Math.abs((angle % (Math.PI * 2)) - (b.angle % (Math.PI * 2)));
             if (diff < 0.2) b.pulse = 1.0;
             if (b.pulse > 0) b.pulse -= 0.015;
