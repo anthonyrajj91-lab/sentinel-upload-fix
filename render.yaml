@@ -1,0 +1,57 @@
+services:
+  # ---------------------------------------------------------------------------
+  # 1. Backend Web Service (FastAPI Licensing & API)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: sentinel-api
+    runtime: python
+    region: oregon # or frankfurt, singapore, ohio
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sentinel-db
+          property: connectionString
+      - key: STRIPE_SECRET_KEY
+        sync: false # Set manually in Render dashboard
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+
+  # ---------------------------------------------------------------------------
+  # 2. Frontend Web Service (Next.js / React Storefront)
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: sentinel-store
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.0
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: sentinel-api
+          property: host
+
+# -----------------------------------------------------------------------------
+# 3. Managed PostgreSQL Database
+# -----------------------------------------------------------------------------
+databases:
+  - name: sentinel-db
+    region: oregon
+    plan: free
+    databaseName: sentinel_store
+    user: sentinel_admin
